@@ -16,13 +16,8 @@ const App = () => {
     const searchMovies = async (title) => {
         const response = await fetch(`${API_URL}&s=${title}`);
         const data = await response.json();
-
         setMovies(data.Search);
     }
-
-    useEffect(() => {
-        searchMovies('Lighthouse')
-    }, []);
 
     return(
         <div className='app'>
@@ -39,7 +34,6 @@ const App = () => {
                     onClick={() => searchMovies(searchTerm)}
                 />
             </div>
-
             {
                 movies?.length > 0
                     ? (
@@ -54,8 +48,6 @@ const App = () => {
                         </div>
                     )
             }
-
-            
         </div>
     )
 }
